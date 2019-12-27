@@ -1,2 +1,5 @@
 tensorflow
 numpy
+cv2
+os
+xml.etree
