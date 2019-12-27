@@ -80,6 +80,7 @@ def write_xml(pic_name, prediction):
 
 if __name__ == '__main__':
     args = parse_args()
+    
     if args.videocapture:
         pass
     # 保存xml路径
