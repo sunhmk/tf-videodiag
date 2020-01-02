@@ -17,14 +17,21 @@ class imageProcess(train_model):
         else:
             self.label = self.readLabel()
         self.prediction = self.predict_image()
+        self.threshold = 0.90
 
     def predict_image(self):
         img_pre = self.img[np.newaxis, :]
         with tf.Session() as sess:
-            prediction = sess.run(self.output_tensor_name,
+            outValue = sess.run([self.output_tensor_name, self.output_tensor_value],
                                   feed_dict={self.input_image_tensor: img_pre,
                                              self.input_is_training_tensor: False})
+            if outValue[0][0] > self.threshold:
+                prediction = 0
+            else:
+                prediction = 1
+
         return prediction
+
 
 def main():
     root = './test'
