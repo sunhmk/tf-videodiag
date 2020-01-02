@@ -25,11 +25,10 @@ class imageProcess(train_model):
             outValue = sess.run([self.output_tensor_name, self.output_tensor_value],
                                   feed_dict={self.input_image_tensor: img_pre,
                                              self.input_is_training_tensor: False})
-            if outValue[0][0] > self.threshold:
+            if outValue[0][0] > 0.9:
                 prediction = 0
             else:
                 prediction = 1
-
         return prediction
 
 
