@@ -82,7 +82,7 @@ def main():
     sess.run(init)
 
     for i in range(2000):
-        rand_index = np.random.choice(7912, 256)
+        rand_index = np.random.choice(X_train.shape[0], 256)
         rand_x = X_train[rand_index]
         rand_y = y_train[rand_index]
         _, err = sess.run([train_op, loss], feed_dict={Net.x_input: rand_x,
