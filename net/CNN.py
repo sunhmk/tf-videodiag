@@ -2,7 +2,7 @@ import tensorflow as tf
 import numpy as np
 from sklearn.model_selection import train_test_split
 
-class LeNet():
+class Network():
     def __init__(self, input_data, is_training):
         self.image_height = 300
         self.image_width = 480
@@ -65,7 +65,7 @@ def main():
     train_data =''
     y = ''
     X_train, X_test, y_train, y_test = train_test_split(train_data, y, test_size=0.1)
-    Net = LeNet()
+    Net = Network()
     model_output = Net.my_conv_net(X_train, is_training=True)
     loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(
         logits=model_output, labels=Net.y_target))
